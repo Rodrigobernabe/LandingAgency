@@ -63,10 +63,18 @@ const FooterCTA = () => {
             </div>
 
             <div className="max-w-4xl mx-auto text-center cta-content relative z-10 w-full mt-auto mb-auto">
-                <h3 className="flex flex-wrap justify-center items-center gap-x-3 text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 font-[var(--font-unbounded)] leading-tight w-full text-center">
-                    <AnimatedText Component="span" text="¿Listo para dejar" delay={0.1} />
-                    <AnimatedText Component="span" text="de perder clientes" delay={0.3} className="text-[var(--color-accent)]" />
-                    <AnimatedText Component="span" text="en tu embudo?" delay={0.5} />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-8 backdrop-blur-md">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)]"></span>
+                    </span>
+                    Solo tomamos 4 proyectos / mes. (2 cupos restantes en {new Date().toLocaleString('es-ES', { month: 'long' })})
+                </div>
+
+                <h3 className="flex flex-wrap justify-center items-center gap-x-3 text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 font-[var(--font-unbounded)] leading-tight w-full text-center relative z-10">
+                    <AnimatedText Component="span" text="¿Listo para dejar" delay={0.1} className="text-white drop-shadow-md" />
+                    <AnimatedText Component="span" text="de perder clientes" delay={0.3} className="text-[var(--color-accent)] drop-shadow-[0_0_20px_rgba(255,79,0,0.4)]" />
+                    <AnimatedText Component="span" text="en tu embudo?" delay={0.5} className="text-white drop-shadow-md" />
                 </h3>
 
                 <p className="text-xl text-gray-400 mb-14 font-light max-w-2xl mx-auto leading-relaxed">

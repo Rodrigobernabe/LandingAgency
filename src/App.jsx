@@ -1,11 +1,16 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import CustomCursor from './components/CustomCursor';
-import Hero from './components/Hero'
-import TargetAudience from './components/TargetAudience'
-import BentoFeatures from './components/BentoFeatures'
-import Pricing from './components/Pricing'
-import FooterCTA from './components/FooterCTA'
+import Hero from './components/Hero';
+import LogoTicker from './components/LogoTicker';
+import OurProcess from './components/OurProcess';
+import TargetAudience from './components/TargetAudience';
+import WorkPortfolio from './components/WorkPortfolio';
+import BentoFeatures from './components/BentoFeatures';
+import FAQ from './components/FAQ';
+import Pricing from './components/Pricing';
+import FooterCTA from './components/FooterCTA';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 function App() {
   useEffect(() => {
@@ -34,15 +39,20 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--color-primary-light)] text-[var(--color-text-main)] font-[var(--font-inter)] selection:bg-[var(--color-accent)] selection:text-white">
+    <div className="min-h-screen bg-[var(--color-primary-light)] text-[var(--color-text-main)] font-[var(--font-inter)] selection:bg-[var(--color-accent)] selection:text-white relative">
       <CustomCursor />
       <Hero />
+      <LogoTicker />
+      <OurProcess />
       <TargetAudience />
+      <WorkPortfolio />
       <BentoFeatures />
+      <FAQ />
       <Pricing />
       <FooterCTA />
+      <FloatingWhatsApp />
     </div>
   )
 }
 
-export default App
+export default App;
