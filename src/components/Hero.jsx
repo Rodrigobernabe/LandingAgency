@@ -3,8 +3,9 @@ import { gsap } from 'gsap';
 import { ArrowRight, BarChart } from 'lucide-react';
 import AnimatedText from './AnimatedText';
 import ThreeScene from './ThreeScene';
+import MagneticButton from './MagneticButton';
 
-const Hero = () => {
+const Hero = ({ openForm }) => {
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -59,15 +60,19 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-fade flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-                        <button className="btn-liquid bg-[var(--color-accent)] text-white px-8 py-4 rounded-xl font-[var(--font-unbounded)] font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_30px_rgba(255,79,0,0.4)] border-none">
-                            <span className="relative z-10 flex items-center gap-2">Ver el Portafolio <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></span>
-                        </button>
+                        <MagneticButton distance={25}>
+                            <button onClick={openForm} className="btn-liquid bg-[var(--color-accent)] text-white px-8 py-4 rounded-xl font-[var(--font-unbounded)] font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_30px_rgba(255,79,0,0.4)] border-none">
+                                <span className="relative z-10 flex items-center gap-2">Ver el Portafolio <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></span>
+                            </button>
+                        </MagneticButton>
 
-                        <button className="group relative border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden px-8 py-4 rounded-xl font-[var(--font-unbounded)] font-semibold transition-colors duration-300 flex items-center justify-center gap-2 z-10">
-                            <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
-                            <span className="group-hover:text-black text-white transition-colors duration-300">Calcula tu ROI</span>
-                            <BarChart className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300" />
-                        </button>
+                        <MagneticButton distance={15}>
+                            <button className="group relative border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden px-8 py-4 rounded-xl font-[var(--font-unbounded)] font-semibold transition-colors duration-300 flex items-center justify-center gap-2 z-10">
+                                <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
+                                <span className="group-hover:text-black text-white transition-colors duration-300">Calcula tu ROI</span>
+                                <BarChart className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors duration-300" />
+                            </button>
+                        </MagneticButton>
                     </div>
                 </div>
             </div>

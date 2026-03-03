@@ -3,10 +3,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Mail } from 'lucide-react';
 import AnimatedText from './AnimatedText';
+import MagneticButton from './MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FooterCTA = () => {
+const FooterCTA = ({ openForm }) => {
     const sectionRef = useRef(null);
     const kineticTextRef = useRef(null);
 
@@ -83,20 +84,24 @@ const FooterCTA = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     {/* Botón Principal (Liquid Fill Style refactorizado para Footer) */}
-                    <button className="btn-liquid overflow-hidden relative group bg-[var(--color-accent)] text-white px-10 py-5 rounded-2xl font-[var(--font-unbounded)] font-semibold transition-all hover:shadow-[0_0_40px_rgba(255,79,0,0.6)] flex items-center justify-center gap-2 border-none">
-                        <span className="relative z-10 flex items-center gap-2 text-lg">
-                            Agendar Auditoría <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
-                    </button>
+                    <MagneticButton distance={20}>
+                        <button onClick={openForm} className="btn-liquid overflow-hidden relative group bg-[var(--color-accent)] text-white px-10 py-5 rounded-2xl font-[var(--font-unbounded)] font-semibold transition-all hover:shadow-[0_0_40px_rgba(255,79,0,0.6)] flex items-center justify-center gap-2 border-none">
+                            <span className="relative z-10 flex items-center gap-2 text-lg">
+                                Agendar Auditoría <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                        </button>
+                    </MagneticButton>
 
-                    <button className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10">
-                        <span className="absolute inset-0 bg-[var(--color-accent)] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
-                        <span className="group-hover:text-white transition-colors duration-300 flex items-center gap-2">
-                            <Mail className="w-5 h-5 group-hover:text-white transition-colors duration-300" />
-                            Escríbenos
-                        </span>
-                    </button>
+                    <MagneticButton distance={10}>
+                        <button className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10">
+                            <span className="absolute inset-0 bg-[var(--color-accent)] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
+                            <span className="group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <Mail className="w-5 h-5 group-hover:text-white transition-colors duration-300" />
+                                Escríbenos
+                            </span>
+                        </button>
+                    </MagneticButton>
                 </div>
             </div>
 

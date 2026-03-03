@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
@@ -6,13 +6,18 @@ import LogoTicker from './components/LogoTicker';
 import OurProcess from './components/OurProcess';
 import TargetAudience from './components/TargetAudience';
 import WorkPortfolio from './components/WorkPortfolio';
+import Testimonials from './components/Testimonials';
+import ComparisonSection from './components/ComparisonSection';
 import BentoFeatures from './components/BentoFeatures';
 import FAQ from './components/FAQ';
+import ROICalculator from './components/ROICalculator';
 import Pricing from './components/Pricing';
 import FooterCTA from './components/FooterCTA';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import InteractiveFormModal from './components/InteractiveFormModal';
 
 function App() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   useEffect(() => {
     // Configurar Lenis (Smooth Scrolling)
     const lenis = new Lenis({
@@ -41,16 +46,25 @@ function App() {
   return (
     <div className="min-h-screen bg-[var(--color-primary-light)] text-[var(--color-text-main)] font-[var(--font-inter)] selection:bg-[var(--color-accent)] selection:text-white relative">
       <CustomCursor />
-      <Hero />
+      <Hero openForm={() => setIsFormOpen(true)} />
       <LogoTicker />
       <OurProcess />
       <TargetAudience />
       <WorkPortfolio />
+      <Testimonials />
+      <ComparisonSection />
       <BentoFeatures />
       <FAQ />
+      <ROICalculator />
       <Pricing />
-      <FooterCTA />
+      <FooterCTA openForm={() => setIsFormOpen(true)} />
       <FloatingWhatsApp />
+
+      {/* Modal Interactivo Superpuesto (Typeform Style) */}
+      <InteractiveFormModal
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+      />
     </div>
   )
 }

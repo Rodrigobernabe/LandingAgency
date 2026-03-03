@@ -66,7 +66,7 @@ export default function CustomCursor() {
     return (
         <div
             ref={cursorRef}
-            className="fixed top-0 left-0 w-10 h-10 rounded-full border-2 pointer-events-none z-50 mix-blend-difference xl:block hidden"
+            className="fixed top-0 left-0 w-10 h-10 rounded-full border-2 pointer-events-none z-[9999] mix-blend-difference xl:block hidden"
             style={{
                 borderColor: 'var(--color-accent)',
                 transform: 'translate(-100px, -100px)' // Fuera de la pantalla inicialmente
