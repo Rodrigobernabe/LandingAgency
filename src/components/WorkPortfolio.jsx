@@ -14,7 +14,8 @@ const portfolioItems = [
         metricText: "Reservas Semanales",
         image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
         colSpan: "col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-2",
-        bgColor: "bg-zinc-900"
+        bgColor: "bg-zinc-900",
+        url: null
     },
     {
         client: "LexPartners",
@@ -23,7 +24,18 @@ const portfolioItems = [
         metricText: "Reducción de Costo por Lead",
         image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
-        bgColor: "bg-[#0A0F1A]"
+        bgColor: "bg-[#0A0F1A]",
+        url: "https://juridico-delta.vercel.app/"
+    },
+    {
+        client: "HwaRang TKD",
+        niche: "Deportes",
+        metric: "+180%",
+        metricText: "Inscripciones mensuales",
+        image: "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=800",
+        colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
+        bgColor: "bg-[#0D1A0A]",
+        url: "https://hwarang-tkd.vercel.app/"
     },
     {
         client: "Rustica Grill",
@@ -32,9 +44,21 @@ const portfolioItems = [
         metricText: "Mesas fines de semana",
         image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
-        bgColor: "bg-[#1A110D]"
+        bgColor: "bg-[#1A110D]",
+        url: null
+    },
+    {
+        client: "Aldea La Adelina",
+        niche: "Emprendedores",
+        metric: "+95%",
+        metricText: "Consultas recibidas",
+        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+        colSpan: "col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-1",
+        bgColor: "bg-[#0A0A1A]",
+        url: "https://aldea-la-adelina.vercel.app/"
     }
 ];
+
 
 const WorkPortfolio = () => {
     const sectionRef = useRef(null);
@@ -118,19 +142,43 @@ const WorkPortfolio = () => {
                                 <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md text-white text-xs font-[var(--font-unbounded)] uppercase tracking-wider rounded-full border border-white/20">
                                     {item.niche}
                                 </span>
-                                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20">
-                                    <ArrowUpRight className="w-6 h-6 text-white" />
-                                </div>
+                                {/* Ícono de enlace superior derecho */}
+                                {item.url ? (
+                                    <a
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20 hover:bg-[var(--color-accent)] hover:border-[var(--color-accent)]"
+                                    >
+                                        <ArrowUpRight className="w-6 h-6 text-white" />
+                                    </a>
+                                ) : (
+                                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20">
+                                        <ArrowUpRight className="w-6 h-6 text-white" />
+                                    </div>
+                                )}
                             </div>
 
                             <div>
                                 <h4 className="text-3xl md:text-4xl font-bold text-white font-[var(--font-unbounded)] mb-2 group-hover:text-[var(--color-accent)] transition-colors duration-300">
                                     {item.client}
                                 </h4>
-                                <div className="flex items-baseline gap-3">
+                                <div className="flex items-baseline gap-3 mb-4">
                                     <span className="text-3xl font-bold text-[#FF4F00]">{item.metric}</span>
                                     <span className="text-gray-300 text-sm font-light">{item.metricText}</span>
                                 </div>
+                                {/* Botón "Ver ejemplo" */}
+                                {item.url && (
+                                    <a
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/10 hover:bg-[var(--color-accent)] backdrop-blur-md border border-white/20 hover:border-[var(--color-accent)] text-white transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,79,0,0.4)]"
+                                    >
+                                        Ver ejemplo <ArrowUpRight className="w-3.5 h-3.5" />
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>

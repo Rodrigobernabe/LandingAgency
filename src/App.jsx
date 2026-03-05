@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
+import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import LogoTicker from './components/LogoTicker';
@@ -46,17 +47,18 @@ function App() {
   return (
     <div className="min-h-screen bg-[var(--color-primary-light)] text-[var(--color-text-main)] font-[var(--font-inter)] selection:bg-[var(--color-accent)] selection:text-white relative">
       <CustomCursor />
+      <Navbar openForm={() => setIsFormOpen(true)} />
       <Hero openForm={() => setIsFormOpen(true)} />
       <LogoTicker />
-      <OurProcess />
+      <div id="proceso"><OurProcess /></div>
       <TargetAudience />
-      <WorkPortfolio />
+      <div id="portafolio"><WorkPortfolio /></div>
       <Testimonials />
       <ComparisonSection />
       <BentoFeatures />
-      <FAQ />
+      <div id="faq"><FAQ /></div>
       <ROICalculator />
-      <Pricing />
+      <div id="precios"><Pricing /></div>
       <FooterCTA openForm={() => setIsFormOpen(true)} />
       <FloatingWhatsApp />
 

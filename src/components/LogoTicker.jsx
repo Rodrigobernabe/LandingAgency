@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-// Logos genéricos en SVG (Placeholders hiper limpios)
+// Logos premium en SVG vectorial (transparentes y perfectos para Dark Mode)
 const logos = [
-    { name: "Acme Corp", d: "M12 2L2 22h20L12 2zm0 6l5 10H7l5-10z" },
-    { name: "Globex", d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" },
-    { name: "Soylent", d: "M21 3H3v18h18V3zM19 19H5V5h14v14zM11 7h2v2h-2zm0 4h2v6h-2z" },
-    { name: "Initech", d: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
-    { name: "Umbrella", d: "M12 2L1 21h22L12 2zm0 3.83L18.4 19H5.6L12 5.83z" }
+    { name: "Alpha Fitness", d: "M2 22l10-20 10 20H2zm10-16.5L6.5 19h11L12 5.5z" }, // Montaña / Delta (Alpha)
+    { name: "Alarcón Legal", d: "M12 2L2 7v2h20V7L12 2zm-5 7v9H5V9h2zm4 0v9h-2V9h2zm4 0v9h-2V9h2zm4 0v9h-2V9h2zM2 20v2h20v-2H2z" }, // Columnas clásicas (Derecho/Legal)
+    { name: "Horizon Real Estate", d: "M3 21h18v-2H3v2zm12-11V4h-6v6H4v9h16v-9h-5zm-2 7h-2v-4h2v4z" }, // Edificios con horizonte
+    { name: "NovaTech Solutions", d: "M12 2L2 12l10 10 10-10L12 2zm0 14.5L7.5 12 12 7.5 16.5 12 12 16.5z" }, // Rombo tecnológico puro
+    { name: "Zenith Capital", d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" } // Círculo/Moneda corporativa
 ];
 
 const LogoTicker = () => {
@@ -20,7 +20,7 @@ const LogoTicker = () => {
         gsap.to(marqueeElements, {
             xPercent: -100,
             repeat: -1,
-            duration: 30, // Velocidad del ticker
+            duration: 50, // Velocidad más lenta y elegante
             ease: "linear"
         });
     }, []);
@@ -43,8 +43,8 @@ const LogoTicker = () => {
                 <div className="flex w-[200%] gap-16 md:gap-32 px-8" ref={marqueeRef}>
                     <div className="flex gap-16 md:gap-32 marquee-content whitespace-nowrap items-center">
                         {duplicatedLogos.map((logo, idx) => (
-                            <div key={`logo-1-${idx}`} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale grayscale-100">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--color-text-main)]">
+                            <div key={`logo-1-${idx}`} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-white">
                                     <path d={logo.d} />
                                 </svg>
                                 <span className="font-[var(--font-unbounded)] font-bold text-lg md:text-xl text-[var(--color-text-main)]">{logo.name}</span>
@@ -54,8 +54,8 @@ const LogoTicker = () => {
                     {/* Clones explícitos para asegurar el loop perfecto en pantallas ultrawide */}
                     <div className="flex gap-16 md:gap-32 marquee-content whitespace-nowrap items-center">
                         {duplicatedLogos.map((logo, idx) => (
-                            <div key={`logo-2-${idx}`} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale grayscale-100">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--color-text-main)]">
+                            <div key={`logo-2-${idx}`} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-300">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-white">
                                     <path d={logo.d} />
                                 </svg>
                                 <span className="font-[var(--font-unbounded)] font-bold text-lg md:text-xl text-[var(--color-text-main)]">{logo.name}</span>

@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Mail } from 'lucide-react';
 import AnimatedText from './AnimatedText';
 import MagneticButton from './MagneticButton';
+import logo from '../assets/logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +58,7 @@ const FooterCTA = ({ openForm }) => {
             </div>
 
             {/* Texto Cinético Gigante (Fondo del CTA) */}
-            <div className="absolute top-1/4 left-0 w-[200vw] pointer-events-none z-0 opacity-10 flex">
+            <div className="absolute top-1/4 left-0 w-[200vw] pointer-events-none z-0 opacity-[0.04] flex">
                 <h2 ref={kineticTextRef} className="text-[15vw] leading-none font-bold tracking-tighter whitespace-nowrap font-[var(--font-unbounded)] text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                     LISTO PARA CRECER? — DEJAR DE PERDER CLIENTES —
                 </h2>
@@ -106,8 +107,11 @@ const FooterCTA = ({ openForm }) => {
             </div>
 
             {/* Footer Bottom */}
-            <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10">
-                <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs">© {new Date().getFullYear()} LandingAgency. High-Performance Design.</p>
+            <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6 md:gap-0">
+                <div className="flex flex-col md:flex-row items-center gap-4">
+                    <img src={logo} alt="LandingAgency Logo" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
+                    <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center md:text-left">© {new Date().getFullYear()} High-Performance Design.</p>
+                </div>
                 <div className="flex gap-8 mt-6 md:mt-0">
                     <a href="#" className="hover:text-white hover:-translate-y-1 transition-all duration-300">Twitter</a>
                     <a href="#" className="hover:text-white hover:-translate-y-1 transition-all duration-300">LinkedIn</a>

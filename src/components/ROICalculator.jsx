@@ -68,7 +68,7 @@ const ROICalculator = () => {
     };
 
     return (
-        <section ref={sectionRef} className="py-24 px-6 md:px-12 max-w-6xl mx-auto relative z-10 bg-[var(--color-primary-light)]">
+        <section id="roi-calculator" ref={sectionRef} className="py-24 px-6 md:px-12 max-w-6xl mx-auto relative z-10 bg-[var(--color-primary-light)]">
 
             <div className="text-center roi-header mb-16 max-w-3xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-6">
