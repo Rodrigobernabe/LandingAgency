@@ -8,21 +8,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const portfolioItems = [
     {
-        client: "IronForge Gym",
+        client: "GymForge",
         niche: "Fitness",
         metric: "+312%",
         metricText: "Reservas Semanales",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
+        image: "/portfolio-captures/gymforge.png",
         colSpan: "col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-2",
         bgColor: "bg-zinc-900",
-        url: null
+        url: "https://gym-rust-tau.vercel.app/"
     },
     {
         client: "LexPartners",
         niche: "Abogados",
         metric: "CPA $4.20",
         metricText: "Reducción de Costo por Lead",
-        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
+        image: "/portfolio-captures/lexpartners.png",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
         bgColor: "bg-[#0A0F1A]",
         url: "https://juridico-delta.vercel.app/"
@@ -32,7 +32,7 @@ const portfolioItems = [
         niche: "Deportes",
         metric: "+180%",
         metricText: "Inscripciones mensuales",
-        image: "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=800",
+        image: "/portfolio-captures/hwarang_tkd.png",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
         bgColor: "bg-[#0D1A0A]",
         url: "https://hwarang-tkd.vercel.app/"
@@ -52,7 +52,7 @@ const portfolioItems = [
         niche: "Emprendedores",
         metric: "+95%",
         metricText: "Consultas recibidas",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+        image: "/portfolio-captures/aldea_la_adelina.png",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-1",
         bgColor: "bg-[#0A0A1A]",
         url: "https://aldea-la-adelina.vercel.app/"
