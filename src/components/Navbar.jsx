@@ -62,7 +62,7 @@ const Navbar = ({ openForm }) => {
                 >
                     {/* Logo — aparece al scrollear */}
                     <div className={`overflow-hidden transition-all duration-500 ease-out ${scrolled ? 'w-[36px] opacity-100 mr-1' : 'w-0 opacity-0'}`}>
-                        <img src={logo} alt="Logo" className="h-[36px] w-[36px] object-contain" />
+                        <img src={logo} alt="RBernabe Academy Logo" className="h-[36px] w-[36px] object-contain" />
                     </div>
 
                     {/* Links de escritorio */}
