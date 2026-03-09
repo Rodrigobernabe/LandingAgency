@@ -51,7 +51,7 @@ const plans = [
     }
 ];
 
-const Pricing = () => {
+const Pricing = ({ openForm }) => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -136,11 +136,13 @@ const Pricing = () => {
                                 <span className={`px-2 py-1 rounded bg-opacity-20 ${plan.isPopular ? 'text-[var(--color-accent)] bg-[var(--color-accent)]' : 'text-gray-300 bg-[#1F2128]'}`}>{plan.time}</span>
                             </div>
 
-                            <button className={`w-full py-4 rounded-xl font-[var(--font-unbounded)] font-bold flex items-center justify-center gap-2 transition-all duration-300 relative overflow-hidden group/btn
+                            <button
+                                onClick={openForm}
+                                className={`w-full py-4 rounded-xl font-[var(--font-unbounded)] font-bold flex items-center justify-center gap-2 transition-all duration-300 relative overflow-hidden group/btn
                                 ${plan.isPopular
-                                    ? 'btn-liquid bg-[var(--color-accent)] text-white hover:shadow-[0_0_20px_rgba(10,102,194,0.4)] border-none'
-                                    : 'bg-transparent border border-[var(--color-text-main)] text-[var(--color-text-main)] hover:text-white'
-                                }`}
+                                        ? 'btn-liquid bg-[var(--color-accent)] text-white hover:shadow-[0_0_20px_rgba(10,102,194,0.4)] border-none'
+                                        : 'bg-transparent border border-[var(--color-text-main)] text-[var(--color-text-main)] hover:text-white'
+                                    }`}
                             >
                                 {/* Efecto de llenado invertido para las estándar */}
                                 {!plan.isPopular && (

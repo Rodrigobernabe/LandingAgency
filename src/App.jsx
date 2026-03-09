@@ -58,7 +58,7 @@ function App() {
       <BentoFeatures />
       <div id="faq"><FAQ /></div>
       <ROICalculator />
-      <div id="precios"><Pricing /></div>
+      <div id="precios"><Pricing openForm={() => setIsFormOpen(true)} /></div>
       <FooterCTA openForm={() => setIsFormOpen(true)} />
       <FloatingWhatsApp />
 

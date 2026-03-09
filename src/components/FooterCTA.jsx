@@ -95,13 +95,13 @@ const FooterCTA = ({ openForm }) => {
                     </MagneticButton>
 
                     <MagneticButton distance={10}>
-                        <button className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10">
+                        <a href="https://wa.me/5492657619592" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10">
                             <span className="absolute inset-0 bg-[var(--color-accent)] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
                             <span className="group-hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <Mail className="w-5 h-5 group-hover:text-white transition-colors duration-300" />
                                 Escríbenos
                             </span>
-                        </button>
+                        </a>
                     </MagneticButton>
                 </div>
             </div>

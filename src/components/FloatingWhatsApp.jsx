@@ -18,7 +18,7 @@ const FloatingWhatsApp = () => {
 
     return (
         <a
-            href="https://wa.me/numerodetelefono" // Add phone number here e.g. https://wa.me/5491112345678
+            href="https://wa.me/5492657619592"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 group"

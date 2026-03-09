@@ -168,7 +168,7 @@ const WorkPortfolio = () => {
                                     <span className="text-gray-300 text-sm font-light">{item.metricText}</span>
                                 </div>
                                 {/* Botón "Ver ejemplo" */}
-                                {item.url && (
+                                {item.url ? (
                                     <a
                                         href={item.url}
                                         target="_blank"
@@ -178,6 +178,10 @@ const WorkPortfolio = () => {
                                     >
                                         Ver ejemplo <ArrowUpRight className="w-3.5 h-3.5" />
                                     </a>
+                                ) : (
+                                    <div className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400">
+                                        En construcción
+                                    </div>
                                 )}
                             </div>
                         </div>
