@@ -14,7 +14,7 @@ const portfolioItems = [
         niche: "Fitness",
         metric: "+312%",
         metricText: "Reservas Semanales",
-        image: "/portfolio-captures/gymforge.png",
+        image: "/portfolio-captures/gymforge.webp",
         colSpan: "col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-2",
         bgColor: "bg-zinc-900",
         url: null,
@@ -22,7 +22,7 @@ const portfolioItems = [
         caseData: {
             title: "De 0 a +50 consultas semanales por WhatsApp.",
             client: "GymForge",
-            image: "/portfolio-captures/gymforge.png",
+            image: "/portfolio-captures/gymforge.webp",
             metrics: [
                 { value: "+312%", label: "Reservas" },
                 { value: "48hs", label: "Tiempo de Entrega" },
@@ -38,7 +38,7 @@ const portfolioItems = [
         niche: "Abogados",
         metric: "CPA $4.20",
         metricText: "Reducción de Costo por Lead",
-        image: "/portfolio-captures/lexpartners.png",
+        image: "/portfolio-captures/lexpartners.webp",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
         bgColor: "bg-[#0A0F1A]",
         url: "https://juridico-delta.vercel.app/"
@@ -48,7 +48,7 @@ const portfolioItems = [
         niche: "Deportes",
         metric: "+180%",
         metricText: "Inscripciones mensuales",
-        image: "/portfolio-captures/hwarang_tkd.png",
+        image: "/portfolio-captures/hwarang_tkd.webp",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-2 lg:row-span-1",
         bgColor: "bg-[#0D1A0A]",
         url: "https://hwarang-tkd.vercel.app/"
@@ -68,7 +68,7 @@ const portfolioItems = [
         niche: "Emprendedores",
         metric: "+95%",
         metricText: "Consultas recibidas",
-        image: "/portfolio-captures/aldea_la_adelina.png",
+        image: "/portfolio-captures/aldea_la_adelina.webp",
         colSpan: "col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-1",
         bgColor: "bg-[#0A0A1A]",
         url: "https://aldea-la-adelina.vercel.app/"

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, BarChart } from 'lucide-react';
@@ -12,15 +12,21 @@ const Hero = ({ openForm }) => {
     const counter1Ref = useRef(null);
     const counter2Ref = useRef(null);
     const counter3Ref = useRef(null);
+    const [videoReady, setVideoReady] = useState(false);
 
     useEffect(() => {
+        // Cargar el video después de 1 segundo para no bloquear la carga inicial (Performance/LCP)
+        const timer = setTimeout(() => {
+            setVideoReady(true);
+        }, 1000);
+
         gsap.registerPlugin(ScrollTrigger);
 
         const ctx = gsap.context(() => {
-            // Animación inicial del hero
+            // Animación inicial del hero: Reducimos el delay de 1s a 0.1s para mejorar el LCP
             gsap.fromTo('.hero-fade',
                 { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', delay: 1 }
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', delay: 0.1 }
             );
 
             // Animación Count-Up de los contadores
@@ -30,7 +36,7 @@ const Hero = ({ openForm }) => {
                     val: target,
                     duration: 2,
                     ease: 'power2.out',
-                    delay: 1.5,
+                    delay: 0.5,
                     scrollTrigger: {
                         trigger: ref.current,
                         start: 'top 90%',
@@ -60,7 +66,10 @@ const Hero = ({ openForm }) => {
                 }
             });
         }, containerRef);
-        return () => ctx.revert();
+        return () => {
+            clearTimeout(timer);
+            ctx.revert();
+        };
     }, []);
 
     return (
@@ -69,15 +78,17 @@ const Hero = ({ openForm }) => {
             {/* Video de Fondo a Pantalla Completa con contenedor para parallax */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-black">
                 <div className="hero-video-bg absolute inset-0 w-full h-[130%] -top-[15%]">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover opacity-60"
-                    >
-                        <source src={heroVideo} type="video/mp4" />
-                    </video>
+                    {videoReady && (
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover opacity-60"
+                        >
+                            <source src={heroVideo} type="video/mp4" />
+                        </video>
+                    )}
                 </div>
             </div>
 

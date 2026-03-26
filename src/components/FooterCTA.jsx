@@ -109,7 +109,7 @@ const FooterCTA = ({ openForm }) => {
             {/* Footer Bottom */}
             <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col justify-center items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6">
                 <div className="flex flex-col items-center gap-4">
-                    <img src={logo} alt="RBernabe Logo" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
+                    <img src={logo} alt="RBernabe Logo" width={40} height={40} loading="lazy" decoding="async" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
                     <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center">© {new Date().getFullYear()} Todos los derechos reservados.</p>
                 </div>
             </div>

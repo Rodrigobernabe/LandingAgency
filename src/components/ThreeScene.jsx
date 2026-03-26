@@ -69,6 +69,9 @@ const ParticleSystem = ({ count = 500 }) => {
 };
 
 export default function ThreeScene() {
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 150 : 400;
+
     return (
         <div className="w-full h-[500px] xl:h-[700px] relative pointer-events-auto cursor-none">
             <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
@@ -89,7 +92,7 @@ export default function ThreeScene() {
                     fadeDistance={30}
                 />
 
-                <ParticleSystem count={400} />
+                <ParticleSystem count={particleCount} />
                 <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
             </Canvas>
         </div>
