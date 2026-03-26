@@ -13,6 +13,16 @@ const Hero = ({ openForm }) => {
     const counter2Ref = useRef(null);
     const counter3Ref = useRef(null);
     const [videoReady, setVideoReady] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         // Cargar el video después de 1 segundo para no bloquear la carga inicial (Performance/LCP)
@@ -84,6 +94,7 @@ const Hero = ({ openForm }) => {
                             loop
                             muted
                             playsInline
+                            preload={isMobile ? "none" : "metadata"}
                             className="w-full h-full object-cover opacity-60"
                         >
                             <source src={heroVideo} type="video/mp4" />

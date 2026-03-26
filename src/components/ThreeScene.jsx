@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Instances, Instance, Grid } from '@react-three/drei';
 import * as THREE from 'three';
@@ -69,32 +69,78 @@ const ParticleSystem = ({ count = 500 }) => {
 };
 
 export default function ThreeScene() {
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 150 : 400;
+    const [isMobile, setIsMobile] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        // Intersection Observer para lazy load del canvas
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        const container = document.querySelector('.three-scene-container');
+        if (container) {
+            observer.observe(container);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const particleCount = isMobile ? 100 : 300;
 
     return (
-        <div className="w-full h-[500px] xl:h-[700px] relative pointer-events-auto cursor-none">
-            <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} intensity={1.5} color="#FF4F00" />
-                <directionalLight position={[-10, -10, -10]} intensity={0.5} />
+        <div className="three-scene-container w-full h-[500px] xl:h-[700px] relative pointer-events-auto cursor-none">
+            {isVisible && (
+                <Canvas
+                    camera={{ position: [0, 0, 15], fov: 45 }}
+                    dpr={isMobile ? 1 : [1, 2]}
+                    performance={{ min: 0.5 }}
+                    gl={{
+                        antialias: !isMobile,
+                        alpha: true,
+                        powerPreference: 'high-performance'
+                    }}
+                >
+                    <ambientLight intensity={0.5} />
+                    <pointLight position={[10, 10, 10]} intensity={1.5} color="#FF4F00" />
+                    <directionalLight position={[-10, -10, -10]} intensity={0.5} />
 
-                {/* Grilla técnica estilo "Tech-Brutalism" Dark Mode */}
-                <Grid
-                    position={[0, -5, 0]}
-                    args={[20, 20]}
-                    cellSize={1}
-                    cellThickness={1}
-                    cellColor="#141517"
-                    sectionSize={5}
-                    sectionThickness={1.5}
-                    sectionColor="#FF4F00"
-                    fadeDistance={30}
-                />
+                    {/* Grilla técnica estilo "Tech-Brutalism" Dark Mode */}
+                    <Grid
+                        position={[0, -5, 0]}
+                        args={[20, 20]}
+                        cellSize={1}
+                        cellThickness={1}
+                        cellColor="#141517"
+                        sectionSize={5}
+                        sectionThickness={1.5}
+                        sectionColor="#FF4F00"
+                        fadeDistance={30}
+                    />
 
-                <ParticleSystem count={particleCount} />
-                <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-            </Canvas>
+                    <ParticleSystem count={particleCount} />
+                    <OrbitControls
+                        enableZoom={false}
+                        enablePan={false}
+                        autoRotate
+                        autoRotateSpeed={isMobile ? 0.3 : 0.5}
+                    />
+                </Canvas>
+            )}
         </div>
     );
 }

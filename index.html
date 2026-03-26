@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- SEO Primario -->
   <title>RBernabe.dev | Tu Landing Page lista para vender hoy</title>
@@ -17,7 +18,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rbernabe.dev/" />
+  <meta property="og:url" href="https://rbernabe.dev/" />
   <meta property="og:title" content="RBernabe.dev | Tu Landing Page lista para vender hoy" />
   <meta property="og:description"
     content="Landing pages personalizadas con enfoque científico en conversión. Entrega récord en 48 horas para maximizar tu ROI." />
@@ -31,9 +32,15 @@
     content="Diseño web enfocado en resultados. Tu landing page lista en tiempo récord con rbernabe.dev." />
   <meta property="twitter:image" content="https://rbernabe.dev/og-image.png" />
 
-  <!-- Fuentes y Estilos -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect para recursos críticos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://i.pravatar.cc" />
+
+  <!-- Fuentes con carga optimizada -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap"
     rel="stylesheet"
@@ -44,6 +51,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap"
       rel="stylesheet">
   </noscript>
+
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" as="script" href="/src/main.jsx" />
 
   <!-- Datos Estructurados JSON-LD -->
   <script type="application/ld+json">
@@ -73,6 +83,10 @@
       }
     ]
     </script>
+
+  <!-- Performance hints -->
+  <meta name="theme-color" content="#040405" />
+  <meta name="color-scheme" content="dark" />
 </head>
 
 <body>
