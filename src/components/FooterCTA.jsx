@@ -107,15 +107,10 @@ const FooterCTA = ({ openForm }) => {
             </div>
 
             {/* Footer Bottom */}
-            <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6 md:gap-0">
-                <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col justify-center items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6">
+                <div className="flex flex-col items-center gap-4">
                     <img src={logo} alt="RBernabe Logo" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
-                    <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center md:text-left">© {new Date().getFullYear()} High-Performance Design.</p>
-                </div>
-                <div className="flex gap-8 mt-6 md:mt-0">
-                    <a href="#" className="hover:text-white hover:-translate-y-1 transition-all duration-300">Twitter</a>
-                    <a href="#" className="hover:text-white hover:-translate-y-1 transition-all duration-300">LinkedIn</a>
-                    <a href="#" className="hover:text-white hover:-translate-y-1 transition-all duration-300">Dribbble</a>
+                    <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center">© {new Date().getFullYear()} Todos los derechos reservados.</p>
                 </div>
             </div>
         </section>

@@ -90,6 +90,10 @@ const TargetAudience = () => {
                                 <img
                                     src={group.image}
                                     alt={group.title}
+                                    width={400}
+                                    height={192}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 sepia-[40%] group-hover:sepia-0 grayscale-[30%] group-hover:grayscale-0"
                                 />
                                 {/* Overlay para darle ese tono oscuro/branding si la imagen es muy brillante */}

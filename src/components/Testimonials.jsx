@@ -94,6 +94,10 @@ const Testimonials = () => {
                             <img
                                 src={test.image}
                                 alt={test.name}
+                                width={48}
+                                height={48}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-12 h-12 rounded-full border border-gray-700 object-cover"
                             />
                             <div>

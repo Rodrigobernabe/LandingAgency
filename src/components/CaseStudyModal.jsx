@@ -56,7 +56,11 @@ const CaseStudyModal = ({ isOpen, onClose, data, openForm }) => {
                 <div className="relative h-64 md:h-80 w-full overflow-hidden rounded-t-3xl bg-zinc-900">
                     <img 
                         src={data.image} 
-                        alt={data.client} 
+                        alt={data.client}
+                        width={800}
+                        height={320}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover opacity-50"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] to-transparent"></div>

@@ -149,6 +149,10 @@ const WorkPortfolio = ({ openForm }) => {
                             <img
                                 src={item.image}
                                 alt={item.client}
+                                width={800}
+                                height={600}
+                                loading="lazy"
+                                decoding="async"
                                 className="portfolio-image w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                             />
                         </div>
