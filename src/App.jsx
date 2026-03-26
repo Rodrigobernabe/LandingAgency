@@ -52,7 +52,7 @@ function App() {
       <LogoTicker />
       <div id="proceso"><OurProcess /></div>
       <TargetAudience />
-      <div id="portafolio"><WorkPortfolio /></div>
+      <div id="portafolio"><WorkPortfolio openForm={() => setIsFormOpen(true)} /></div>
       <Testimonials />
       <ComparisonSection />
       <BentoFeatures />

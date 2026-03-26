@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
 import AnimatedText from './AnimatedText';
+import CaseStudyModal from './CaseStudyModal';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +17,21 @@ const portfolioItems = [
         image: "/portfolio-captures/gymforge.png",
         colSpan: "col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-2",
         bgColor: "bg-zinc-900",
-        url: "https://gym-rust-tau.vercel.app/"
+        url: null,
+        hasCaseStudy: true,
+        caseData: {
+            title: "De 0 a +50 consultas semanales por WhatsApp.",
+            client: "GymForge",
+            image: "/portfolio-captures/gymforge.png",
+            metrics: [
+                { value: "+312%", label: "Reservas" },
+                { value: "48hs", label: "Tiempo de Entrega" },
+                { value: "+50", label: "Leads Semanales" }
+            ],
+            challenge: "GymForge es un gimnasio de primer nivel en Villa Mercedes, San Luis. Su problema no era la falta de calidad en su servicio, sino la invisibilidad digital. Necesitaban presencia web urgente para captar a las decenas de personas que buscan dónde entrenar en la ciudad cada semana, pero no querían una página lenta, genérica ni aburrida que nadie iba a leer.",
+            solution: "Detectamos que su cliente ideal toma decisiones rápidas desde el celular. Por eso, en lugar de un sitio web informativo tradicional, construimos una Landing Page de Alta Conversión en tiempo récord (48 horas). Eliminamos todas las distracciones y centramos el diseño en un solo llamado a la acción con estética minimalista y oscura.",
+            result: "Al tener una presencia web profesional y orientada directamente a la venta, GymForge pasó de no tener presencia a recibir más de 50 consultas semanales automatizadas directamente a su WhatsApp, llenando sus cupos y consolidándose como líderes en la zona."
+        }
     },
     {
         client: "LexPartners",
@@ -60,8 +76,9 @@ const portfolioItems = [
 ];
 
 
-const WorkPortfolio = () => {
+const WorkPortfolio = ({ openForm }) => {
     const sectionRef = useRef(null);
+    const [selectedCase, setSelectedCase] = useState(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -152,6 +169,13 @@ const WorkPortfolio = () => {
                                     >
                                         <ArrowUpRight className="w-6 h-6 text-white" />
                                     </a>
+                                ) : item.hasCaseStudy ? (
+                                    <button
+                                        onClick={() => setSelectedCase(item.caseData)}
+                                        className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-[var(--color-accent)] hover:bg-[var(--color-accent)]"
+                                    >
+                                        <ArrowUpRight className="w-6 h-6 text-white" />
+                                    </button>
                                 ) : (
                                     <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20">
                                         <ArrowUpRight className="w-6 h-6 text-white" />
@@ -178,12 +202,20 @@ const WorkPortfolio = () => {
                                     >
                                         Ver ejemplo <ArrowUpRight className="w-3.5 h-3.5" />
                                     </a>
+                                ) : item.hasCaseStudy ? (
+                                    <button
+                                        onClick={() => setSelectedCase(item.caseData)}
+                                        className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-[var(--color-accent)]/80 hover:bg-[var(--color-accent)] backdrop-blur-md border border-[var(--color-accent)] text-white transition-all duration-200 shadow-[0_0_15px_rgba(255,79,0,0.2)] hover:shadow-[0_0_25px_rgba(255,79,0,0.5)]"
+                                    >
+                                        Ver Caso de Estudio <ArrowUpRight className="w-3.5 h-3.5" />
+                                    </button>
                                 ) : (
                                     <div className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400">
                                         En construcción
                                     </div>
                                 )}
                             </div>
+
                         </div>
                     </div>
                 ))}
@@ -194,6 +226,12 @@ const WorkPortfolio = () => {
                     Ver todos los casos <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
             </div>
+            <CaseStudyModal 
+                isOpen={!!selectedCase} 
+                onClose={() => setSelectedCase(null)} 
+                data={selectedCase} 
+                openForm={openForm}
+            />
         </section>
     );
 };
