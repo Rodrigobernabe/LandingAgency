@@ -50,7 +50,7 @@ const BentoFeatures = () => {
                         <AnimatedText text="Más que un" delay={0.1} Component="span" className="inline-flex mr-3" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF9500]">folleto digital.</span>
                         <br />
-                        <AnimatedText text="Diseñadas para captar." delay={0.3} className="text-3xl md:text-4xl lg:text-5xl mt-2 text-gray-400" />
+                        <AnimatedText text="Diseñadas para captar." delay={0.3} Component="span" className="text-3xl md:text-4xl lg:text-5xl mt-2 text-gray-400 flex flex-wrap gap-x-3" />
                     </h3>
                 </div>
             </div>
@@ -73,7 +73,7 @@ const BentoFeatures = () => {
 
                     <div className="relative z-10 max-w-lg mt-auto">
                         <h4 className="text-3xl md:text-5xl font-bold mb-6 font-[var(--font-unbounded)] leading-tight">Lanzamiento <br /><span className="text-[var(--color-accent)]">en 48hs</span></h4>
-                        <p className="text-gray-500 font-light text-lg">No más esperas infinitas. Metodología ágil que transforma tu idea en una landing transaccional en tiempo récord, para que empieces a facturar hoy.</p>
+                        <p className="text-gray-300 font-light text-lg">No más esperas infinitas. Metodología ágil que transforma tu idea en una landing transaccional en tiempo récord, para que empieces a facturar hoy.</p>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@ const BentoFeatures = () => {
 
                     <div className="relative z-10 mt-8">
                         <h4 className="text-xl font-bold mb-3 font-[var(--font-unbounded)]">Pensado para el Celular</h4>
-                        <p className="text-gray-400 font-light text-sm leading-relaxed">El 80% de tus clientes te verán desde su móvil. Aseguramos una experiencia que fluye perfecto donde más importa.</p>
+                        <p className="text-gray-200 font-light text-sm leading-relaxed">El 80% de tus clientes te verán desde su móvil. Aseguramos una experiencia que fluye perfecto donde más importa.</p>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ const BentoFeatures = () => {
 
                     <div className="relative z-10 mt-8">
                         <h4 className="text-xl font-bold mb-3 font-[var(--font-unbounded)] text-white">Fricción Cero</h4>
-                        <p className="text-gray-400 font-light text-sm leading-relaxed">Integración directa a un toque hacia WhatsApp, Calendly o tu CRM favorito. Que hablen contigo sin pensarlo.</p>
+                        <p className="text-gray-200 font-light text-sm leading-relaxed">Integración directa a un toque hacia WhatsApp, Calendly o tu CRM favorito. Que hablen contigo sin pensarlo.</p>
                     </div>
                 </div>
 
@@ -121,7 +121,7 @@ const BentoFeatures = () => {
                 <div className="bento-item col-span-1 md:col-span-4 lg:col-span-6 lg:row-span-1 bg-[var(--color-surface)] border border-[var(--color-border)] p-8 md:p-10 rounded-3xl flex flex-col md:flex-row items-start md:items-center justify-between transition-all duration-500 hover:border-[var(--color-border)] hover:shadow-sm group overflow-hidden relative">
                     <div className="max-w-3xl relative z-10">
                         <h4 className="text-2xl md:text-3xl font-bold mb-4 font-[var(--font-unbounded)]">Textos que Venden</h4>
-                        <p className="text-gray-400 font-light leading-relaxed text-lg">Un diseño premium no sirve si el mensaje no convence. Aplicamos principios de <span className="text-[var(--color-text-main)] font-semibold">Copywriting Científico</span> para derribar objeciones y guiar instintivamente al usuario hacia el clic final.</p>
+                        <p className="text-gray-200 font-light leading-relaxed text-lg">Un diseño premium no sirve si el mensaje no convence. Aplicamos principios de <span className="text-[var(--color-text-main)] font-semibold">Copywriting Científico</span> para derribar objeciones y guiar instintivamente al usuario hacia el clic final.</p>
                     </div>
 
                     <div className="relative z-10 hidden mt-6 md:mt-0 flex-shrink-0 md:flex items-center justify-center p-6 bg-[#1F2128] border border-gray-800 rounded-full transition-transform duration-700 group-hover:-rotate-12 group-hover:scale-110">

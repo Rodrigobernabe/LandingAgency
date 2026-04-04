@@ -63,11 +63,11 @@ const TargetAudience = () => {
                 <div className="text-left max-w-2xl">
                     <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4">Audiencia</h2>
                     <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight">
-                        <AnimatedText text="Diseñamos para" delay={0.1} />
+                        <AnimatedText text="Diseñamos para" delay={0.1} Component="span" />
                         <br />
                         <span className="text-gray-400">quienes necesitan</span>
                         <br />
-                        <AnimatedText text="resultados hoy." delay={0.3} />
+                        <AnimatedText text="resultados hoy." delay={0.3} Component="span" />
                     </h3>
                 </div>
                 <div className="w-full md:w-1/3 text-left md:text-right hidden md:block">

@@ -65,7 +65,7 @@ const ComparisonSection = () => {
             <div className="text-center comp-header mb-16 w-full flex flex-col items-center">
                 <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4 text-center">La Diferencia</h2>
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight flex flex-col items-center justify-center text-center">
-                    <AnimatedText text="Agencias Tradicionales" delay={0.1} />
+                    <AnimatedText text="Agencias Tradicionales" delay={0.1} Component="span" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700 mt-2 block">VS</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF4F00] mt-2 block">Nuestra Agencia.</span>
                 </h3>

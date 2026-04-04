@@ -96,7 +96,8 @@ const Navbar = ({ openForm }) => {
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
                         className="flex md:hidden items-center justify-center w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"
-                        aria-label="Menú"
+                        aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+                        aria-expanded={mobileOpen}
                     >
                         {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
                     </button>
@@ -104,7 +105,11 @@ const Navbar = ({ openForm }) => {
             </nav>
 
             {/* Mobile dropdown */}
-            <div className={`
+            <div 
+                role="dialog"
+                aria-modal="true"
+                aria-label="Menú de navegación móvil"
+                className={`
                 fixed top-[72px] left-4 right-4 z-[99]
                 bg-[#0d0d0f]/95 backdrop-blur-xl border border-white/10 rounded-2xl
                 shadow-[0_16px_48px_rgba(0,0,0,0.6)]

@@ -60,7 +60,7 @@ const FAQ = () => {
             <div className="text-center faq-header mb-16 flex flex-col items-center w-full">
                 <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4 text-center">Transparencia Radical</h2>
                 <h3 className="text-3xl md:text-5xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight mb-6 flex flex-col items-center justify-center text-center">
-                    <AnimatedText text="Todas tus dudas," delay={0.1} />
+                    <AnimatedText text="Todas tus dudas," delay={0.1} Component="span" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF4F00] mt-2 block">resueltas.</span>
                 </h3>
             </div>
@@ -68,27 +68,42 @@ const FAQ = () => {
             <div className="faq-list flex flex-col gap-4">
                 {faqs.map((faq, idx) => {
                     const isOpen = openIndex === idx;
+                    const questionId = `faq-question-${idx}`;
+                    const answerId = `faq-answer-${idx}`;
 
                     return (
                         <div
                             key={idx}
-                            onClick={() => toggleFAQ(idx)}
-                            className={`faq-item group cursor-pointer border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen
+                            className={`faq-item group border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen
                                 ? 'bg-[var(--color-surface)] border-[var(--color-accent)] shadow-[0_4px_30px_rgba(255,79,0,0.1)]'
                                 : 'bg-[var(--color-primary-light)] border-[var(--color-border)] hover:border-gray-600'
                                 }`}
                         >
-                            <div className="p-6 md:p-8 flex justify-between items-center gap-4">
+                            <button
+                                onClick={() => toggleFAQ(idx)}
+                                aria-expanded={isOpen}
+                                aria-controls={answerId}
+                                id={questionId}
+                                className="w-full text-left p-6 md:p-8 flex justify-between items-center gap-4 focus:outline-none"
+                            >
                                 <h4 className={`text-lg md:text-xl font-[var(--font-unbounded)] font-medium transition-colors ${isOpen ? 'text-[var(--color-accent)]' : 'text-gray-300 group-hover:text-white'}`}>
                                     {faq.question}
                                 </h4>
-                                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${isOpen ? 'bg-[var(--color-accent)] text-white rotate-45' : 'bg-white/5 text-gray-400 group-hover:bg-white/10'}`}>
+                                <div 
+                                    aria-hidden="true"
+                                    className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${isOpen ? 'bg-[var(--color-accent)] text-white rotate-45' : 'bg-white/5 text-gray-400 group-hover:bg-white/10'}`}
+                                >
                                     <Plus className="w-5 h-5" />
                                 </div>
-                            </div>
+                            </button>
 
                             {/* Contenedor animado para la respuesta (Acordeón) */}
-                            <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                            <div 
+                                id={answerId}
+                                role="region"
+                                aria-labelledby={questionId}
+                                className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                            >
                                 <div className="overflow-hidden">
                                     <div className="p-6 md:p-8 pt-0 text-gray-400 leading-relaxed font-light border-t border-white/5 mt-2">
                                         {faq.answer}

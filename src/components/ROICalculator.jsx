@@ -75,7 +75,7 @@ const ROICalculator = () => {
                     <Calculator className="w-4 h-4" /> Simulador de Crecimiento
                 </div>
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight flex flex-col items-center justify-center text-center">
-                    <AnimatedText text="Descubre cuánto dinero" delay={0.1} />
+                    <AnimatedText text="Descubre cuánto dinero" delay={0.1} Component="span" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF9500] mt-2 block">estás perdiendo.</span>
                 </h3>
                 <p className="mt-6 text-gray-400 text-lg font-light">

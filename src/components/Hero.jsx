@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, BarChart } from 'lucide-react';
 import AnimatedText from './AnimatedText';
 import heroVideo from '../assets/hero.mp4';
+import heroPoster from '../assets/hero-poster.png';
 import MagneticButton from './MagneticButton';
 
 const Hero = ({ openForm }) => {
@@ -39,24 +40,25 @@ const Hero = ({ openForm }) => {
                 { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', delay: 0.1 }
             );
 
-            // Animación Count-Up de los contadores
+            // Animación Count-Up de los contadores (Refactorizada para máxima fiabilidad)
             const animateCounter = (ref, target, suffix = '', prefix = '') => {
                 const obj = { val: 0 };
-                gsap.to(obj, {
-                    val: target,
-                    duration: 2,
-                    ease: 'power2.out',
-                    delay: 0.5,
-                    scrollTrigger: {
-                        trigger: ref.current,
-                        start: 'top 90%',
-                        once: true,
-                    },
-                    onUpdate: () => {
-                        if (ref.current) {
-                            ref.current.textContent = `${prefix}${Math.floor(obj.val)}${suffix}`;
-                        }
-                    },
+                ScrollTrigger.create({
+                    trigger: ref.current,
+                    start: 'top 95%', // Dispara un poco antes
+                    once: true,
+                    onEnter: () => {
+                        gsap.to(obj, {
+                            val: target,
+                            duration: 2.5,
+                            ease: 'power3.out', // Transición más suave
+                            onUpdate: () => {
+                                if (ref.current) {
+                                    ref.current.textContent = `${prefix}${Math.floor(obj.val)}${suffix}`;
+                                }
+                            }
+                        });
+                    }
                 });
             };
 
@@ -94,6 +96,8 @@ const Hero = ({ openForm }) => {
                             loop
                             muted
                             playsInline
+                            poster={heroPoster}
+                            title="Video de fondo abstracto representando tecnología y crecimiento digital"
                             preload={isMobile ? "none" : "metadata"}
                             className="w-full h-full object-cover opacity-60"
                         >
@@ -121,7 +125,7 @@ const Hero = ({ openForm }) => {
                         <span className="block">clics en <span className="text-[var(--color-accent)] drop-shadow-[0_0_30px_rgba(255,79,0,0.4)]">clientes.</span></span>
                     </h1>
 
-                    <p className="hero-fade text-base md:text-lg text-gray-400 mb-10 max-w-xl font-light leading-relaxed">
+                    <p className="hero-fade text-base md:text-lg text-gray-300 mb-10 max-w-xl font-light leading-relaxed">
                         Diseño que convierte. Entrega en 48hs. Sin plantillas, sin excusas.
                     </p>
 
@@ -148,17 +152,17 @@ const Hero = ({ openForm }) => {
                     <div className="hero-fade flex flex-wrap justify-center gap-x-10 gap-y-4 mt-10">
                         <div className="text-center">
                             <div ref={counter1Ref} className="text-3xl font-bold font-[var(--font-unbounded)] text-white">+0</div>
-                            <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">Proyectos lanzados</div>
+                            <div className="text-xs text-gray-300 uppercase tracking-widest mt-1">Proyectos lanzados</div>
                         </div>
                         <div className="w-px bg-[var(--color-border)] hidden sm:block"></div>
                         <div className="text-center">
                             <div ref={counter2Ref} className="text-3xl font-bold font-[var(--font-unbounded)] text-[var(--color-accent)]">+0%</div>
-                            <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">Conversión promedio</div>
+                            <div className="text-xs text-gray-300 uppercase tracking-widest mt-1">Conversión promedio</div>
                         </div>
                         <div className="w-px bg-[var(--color-border)] hidden sm:block"></div>
                         <div className="text-center">
                             <div ref={counter3Ref} className="text-3xl font-bold font-[var(--font-unbounded)] text-white">0hs</div>
-                            <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">Tiempo de entrega</div>
+                            <div className="text-xs text-gray-300 uppercase tracking-widest mt-1">Tiempo de entrega</div>
                         </div>
                     </div>
                 </div>

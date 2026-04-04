@@ -81,7 +81,7 @@ const OurProcess = () => {
             <div className="text-center process-header mb-20 w-full flex flex-col items-center">
                 <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4 text-center">Metodología Clara</h2>
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight flex flex-col items-center justify-center text-center">
-                    <AnimatedText text="Tu nueva web lista" delay={0.1} />
+                    <AnimatedText text="Tu nueva web lista" delay={0.1} Component="span" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF4F00] mt-2 block">en solo 3 pasos.</span>
                 </h3>
             </div>

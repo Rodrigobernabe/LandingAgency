@@ -64,13 +64,21 @@ export default function CustomCursor() {
     }, [isHovering]);
 
     return (
-        <div
-            ref={cursorRef}
-            className="fixed top-0 left-0 w-10 h-10 rounded-full border-2 pointer-events-none z-[9999] mix-blend-difference xl:block hidden"
-            style={{
-                borderColor: 'var(--color-accent)',
-                transform: 'translate(-100px, -100px)' // Fuera de la pantalla inicialmente
-            }}
-        />
+        <>
+            <div
+                ref={cursorRef}
+                className="fixed top-0 left-0 w-10 h-10 rounded-full border border-[var(--color-accent)] pointer-events-none z-[10000] mix-blend-difference xl:block hidden"
+                style={{
+                    transform: 'translate(-100px, -100px)'
+                }}
+            />
+            <div
+                className="fixed top-0 left-0 w-1 h-1 bg-[var(--color-accent)] rounded-full pointer-events-none z-[10000] mix-blend-difference xl:block hidden"
+                id="cursor-dot"
+                style={{
+                    transform: 'translate(-100px, -100px)'
+                }}
+            />
+        </>
     );
 }

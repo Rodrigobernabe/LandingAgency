@@ -95,7 +95,13 @@ const FooterCTA = ({ openForm }) => {
                     </MagneticButton>
 
                     <MagneticButton distance={10}>
-                        <a href="https://wa.me/5492657619592" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10">
+                        <a 
+                            href="https://wa.me/5492657619592" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="Pedir más información por WhatsApp"
+                            className="group relative inline-flex items-center gap-2 px-10 py-5 font-[var(--font-unbounded)] font-medium text-white border border-gray-700 bg-transparent rounded-2xl transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[#141517] text-lg overflow-hidden z-10"
+                        >
                             <span className="absolute inset-0 bg-[var(--color-accent)] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-[-1]"></span>
                             <span className="group-hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <Mail className="w-5 h-5 group-hover:text-white transition-colors duration-300" />
@@ -109,7 +115,7 @@ const FooterCTA = ({ openForm }) => {
             {/* Footer Bottom */}
             <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col justify-center items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6">
                 <div className="flex flex-col items-center gap-4">
-                    <img src={logo} alt="RBernabe Logo" width={40} height={40} loading="lazy" decoding="async" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
+                    <img src={logo} alt="Logotipo RBernabe Digital Agency" width={40} height={40} loading="lazy" decoding="async" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
                     <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center">© {new Date().getFullYear()} Todos los derechos reservados.</p>
                 </div>
             </div>

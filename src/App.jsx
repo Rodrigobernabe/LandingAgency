@@ -1,8 +1,12 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LogoTicker = lazy(() => import('./components/LogoTicker'));
 const OurProcess = lazy(() => import('./components/OurProcess'));
@@ -40,13 +44,29 @@ function App() {
     }
     requestAnimationFrame(raf);
 
+    // Animación de la barra de progreso de scroll
+    // gsap.to('#scroll-progress', {
+    //   width: '100%',
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: 'body',
+    //     start: 'top top',
+    //     end: 'bottom bottom',
+    //     scrub: 0.3,
+    //   },
+    // });
+
     return () => {
       lenis.destroy();
+      // ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-[var(--color-primary-light)] text-[var(--color-text-main)] font-[var(--font-inter)] selection:bg-[var(--color-accent)] selection:text-white relative">
+      {/* Barra de progreso de lectura */}
+      <div id="scroll-progress" className="fixed top-0 left-0 h-1 bg-[var(--color-accent)] z-[10001] w-0 transition-all duration-100 ease-out"></div>
+      
       <CustomCursor />
       <Navbar openForm={() => setIsFormOpen(true)} />
       <Hero openForm={() => setIsFormOpen(true)} />

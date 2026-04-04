@@ -12,6 +12,7 @@ const portfolioItems = [
     {
         client: "GymForge",
         niche: "Fitness",
+        countryCode: "AR",
         metric: "+312%",
         metricText: "Reservas Semanales",
         image: "/portfolio-captures/gymforge.webp",
@@ -36,6 +37,7 @@ const portfolioItems = [
     {
         client: "LexPartners",
         niche: "Abogados",
+        countryCode: "ES",
         metric: "CPA $4.20",
         metricText: "Reducción de Costo por Lead",
         image: "/portfolio-captures/lexpartners.webp",
@@ -46,6 +48,7 @@ const portfolioItems = [
     {
         client: "HwaRang TKD",
         niche: "Deportes",
+        countryCode: "AR",
         metric: "+180%",
         metricText: "Inscripciones mensuales",
         image: "/portfolio-captures/hwarang_tkd.webp",
@@ -56,6 +59,7 @@ const portfolioItems = [
     {
         client: "Rustica Grill",
         niche: "Restaurante",
+        countryCode: "AR",
         metric: "Sold Out",
         metricText: "Mesas fines de semana",
         image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
@@ -66,6 +70,7 @@ const portfolioItems = [
     {
         client: "Aldea La Adelina",
         niche: "Emprendedores",
+        countryCode: "AR",
         metric: "+95%",
         metricText: "Consultas recibidas",
         image: "/portfolio-captures/aldea_la_adelina.webp",
@@ -120,11 +125,11 @@ const WorkPortfolio = ({ openForm }) => {
         <section ref={sectionRef} className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 bg-[var(--color-primary-light)]">
             <div className="flex flex-col md:flex-row justify-between items-end portfolio-header mb-16 gap-8">
                 <div className="text-left max-w-2xl">
-                    <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4">No Confiamos en Teorías</h2>
+                    <h2 className="text-sm font-[var(--font-unbounded)] font-semibold text-[var(--color-accent)] tracking-widest uppercase mb-4">Casos de Éxito</h2>
                     <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-main)] font-[var(--font-unbounded)] leading-tight">
-                        <AnimatedText text="Diseños que" delay={0.1} />
+                        <AnimatedText text="Resultados que" delay={0.1} Component="span" />
                         <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF4F00]">multiplican ingresos.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent)] to-[#FF4F00]">hablan por nosotros.</span>
                     </h3>
                 </div>
                 <div className="pb-2 hidden md:block">
@@ -148,7 +153,7 @@ const WorkPortfolio = ({ openForm }) => {
                         <div className="absolute inset-0 -top-[20%] h-[140%] w-full">
                             <img
                                 src={item.image}
-                                alt={item.client}
+                                alt={`Captura de pantalla de la landing page diseñada para ${item.client}`}
                                 width={800}
                                 height={600}
                                 loading="lazy"
@@ -160,15 +165,28 @@ const WorkPortfolio = ({ openForm }) => {
                         {/* Contenido (Textos Flotantes) */}
                         <div className="absolute inset-0 z-20 p-8 md:p-10 flex flex-col justify-between">
                             <div className="flex justify-between items-start">
-                                <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md text-white text-xs font-[var(--font-unbounded)] uppercase tracking-wider rounded-full border border-white/20">
-                                    {item.niche}
-                                </span>
+                                <div className="flex flex-wrap items-center gap-2">
+                                    <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md text-white text-xs font-[var(--font-unbounded)] uppercase tracking-wider rounded-full border border-white/20">
+                                        {item.niche}
+                                    </span>
+                                    <div 
+                                        className="w-7 h-7 rounded-full overflow-hidden border border-white/20 shadow-lg flex-shrink-0 bg-white/5"
+                                        title={item.countryCode === 'AR' ? 'Argentina' : 'España'}
+                                    >
+                                        <img 
+                                            src={item.countryCode === 'AR' ? 'https://flagcdn.com/w80/ar.png' : 'https://flagcdn.com/w80/es.png'} 
+                                            alt={item.countryCode} 
+                                            className="w-full h-full object-cover scale-125"
+                                        />
+                                    </div>
+                                </div>
                                 {/* Ícono de enlace superior derecho */}
                                 {item.url ? (
                                     <a
                                         href={item.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        aria-label={`Visitar el sitio web de ${item.client}`}
                                         className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20 hover:bg-[var(--color-accent)] hover:border-[var(--color-accent)]"
                                     >
                                         <ArrowUpRight className="w-6 h-6 text-white" />
@@ -176,12 +194,16 @@ const WorkPortfolio = ({ openForm }) => {
                                 ) : item.hasCaseStudy ? (
                                     <button
                                         onClick={() => setSelectedCase(item.caseData)}
+                                        aria-label={`Ver caso de estudio de ${item.client}`}
                                         className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-[var(--color-accent)] hover:bg-[var(--color-accent)]"
                                     >
                                         <ArrowUpRight className="w-6 h-6 text-white" />
                                     </button>
                                 ) : (
-                                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20">
+                                    <div 
+                                        aria-hidden="true"
+                                        className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 border border-white/20"
+                                    >
                                         <ArrowUpRight className="w-6 h-6 text-white" />
                                     </div>
                                 )}
@@ -202,6 +224,7 @@ const WorkPortfolio = ({ openForm }) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={(e) => e.stopPropagation()}
+                                        aria-label={`Abrir ejemplo en vivo del proyecto ${item.client}`}
                                         className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/10 hover:bg-[var(--color-accent)] backdrop-blur-md border border-white/20 hover:border-[var(--color-accent)] text-white transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,79,0,0.4)]"
                                     >
                                         Ver ejemplo <ArrowUpRight className="w-3.5 h-3.5" />
@@ -209,12 +232,16 @@ const WorkPortfolio = ({ openForm }) => {
                                 ) : item.hasCaseStudy ? (
                                     <button
                                         onClick={() => setSelectedCase(item.caseData)}
+                                        aria-label={`Leer más sobre el éxito de ${item.client}`}
                                         className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-[var(--color-accent)]/80 hover:bg-[var(--color-accent)] backdrop-blur-md border border-[var(--color-accent)] text-white transition-all duration-200 shadow-[0_0_15px_rgba(255,79,0,0.2)] hover:shadow-[0_0_25px_rgba(255,79,0,0.5)]"
                                     >
                                         Ver Caso de Estudio <ArrowUpRight className="w-3.5 h-3.5" />
                                     </button>
                                 ) : (
-                                    <div className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400">
+                                    <div 
+                                        aria-hidden="true"
+                                        className="inline-flex items-center gap-2 text-xs font-semibold font-[var(--font-unbounded)] px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400"
+                                    >
                                         En construcción
                                     </div>
                                 )}
