@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# AEO Optimization (AI Bots)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://rbernabe.dev/sitemap.xml
