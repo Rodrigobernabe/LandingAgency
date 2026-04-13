@@ -69,8 +69,13 @@ const Testimonials = () => {
                 {testimonials.map((test, idx) => (
                     <div
                         key={idx}
+                        itemScope
+                        itemType="https://schema.org/Review"
                         className="testimonial-card relative bg-[var(--color-surface)] border border-[var(--color-border)] p-8 rounded-3xl hover:border-[var(--color-accent)]/50 transition-colors duration-300 group flex flex-col justify-between"
                     >
+                        {/* Meta invisible para el nombre del item siendo reseñado */}
+                        <meta itemProp="itemReviewed" content="RBernabe Landing Page Development" />
+                        
                         {/* Icono de comillas de fondo */}
                         <div className="absolute top-6 right-6 opacity-5 group-hover:opacity-10 group-hover:-translate-y-1 transition-all duration-300">
                             <Quote size={60} />
@@ -78,19 +83,21 @@ const Testimonials = () => {
 
                         <div>
                             {/* Estrellas */}
-                            <div className="flex gap-1 mb-6">
+                            <div className="flex gap-1 mb-6" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                                <meta itemProp="ratingValue" content={test.rating} />
+                                <meta itemProp="bestRating" content="5" />
                                 {[...Array(test.rating)].map((_, i) => (
                                     <Star key={i} className="w-5 h-5 fill-[var(--color-accent)] text-[var(--color-accent)]" />
                                 ))}
                             </div>
 
-                            <p className="text-gray-300 font-light leading-relaxed mb-8 relative z-10">
+                            <p className="text-gray-300 font-light leading-relaxed mb-8 relative z-10" itemProp="reviewBody">
                                 "{test.content}"
                             </p>
                         </div>
 
                         {/* Info del Cliente */}
-                        <div className="flex items-center gap-4 relative z-10 border-t border-[var(--color-border)] pt-6">
+                        <div className="flex items-center gap-4 relative z-10 border-t border-[var(--color-border)] pt-6" itemProp="author" itemScope itemType="https://schema.org/Person">
                             <img
                                 src={test.image}
                                 alt={test.name}
@@ -99,9 +106,10 @@ const Testimonials = () => {
                                 loading="lazy"
                                 decoding="async"
                                 className="w-12 h-12 rounded-full border border-gray-700 object-cover"
+                                itemProp="image"
                             />
                             <div>
-                                <h4 className="font-[var(--font-unbounded)] font-bold text-white text-sm">{test.name}</h4>
+                                <h4 className="font-[var(--font-unbounded)] font-bold text-white text-sm" itemProp="name">{test.name}</h4>
                                 <p className="text-gray-500 text-xs">{test.role}</p>
                             </div>
                         </div>

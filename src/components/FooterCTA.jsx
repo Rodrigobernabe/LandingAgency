@@ -116,7 +116,11 @@ const FooterCTA = ({ openForm }) => {
             <div className="mt-auto pt-10 border-t border-gray-800/50 flex flex-col justify-center items-center max-w-7xl mx-auto w-full text-gray-500 text-sm relative z-10 gap-6">
                 <div className="flex flex-col items-center gap-4">
                     <img src={logo} alt="Logotipo RBernabe Digital Agency" width={40} height={40} loading="lazy" decoding="async" className="h-[40px] w-auto opacity-50 hover:opacity-100 transition-opacity duration-300" />
-                    <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-xs text-center">© {new Date().getFullYear()} Todos los derechos reservados.</p>
+                    <div className="text-center">
+                        <p className="font-[var(--font-unbounded)] uppercase tracking-wider text-[10px] md:text-xs">© {new Date().getFullYear()} RBernabe.dev · San Luis, Argentina</p>
+                        <p className="text-[10px] mt-2 opacity-40 font-light">Especialistas en Conversión Web de alta performance.</p>
+                        <p className="text-[9px] mt-4 opacity-20 font-light italic tracking-widest uppercase">Última actualización: {new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                    </div>
                 </div>
             </div>
         </section>
