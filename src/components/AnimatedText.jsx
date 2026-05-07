@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AnimatedText({ text, className = "", Component = "h1", delay = 0 }) {
+export default function AnimatedText({ text, className = "", Component = "span", delay = 0 }) {
     const containerRef = useRef(null);
 
     useEffect(() => {

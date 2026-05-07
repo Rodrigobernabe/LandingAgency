@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const targetGroups = [
     {
-        image: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop',
         title: 'Gimnasios & Fitness',
         desc: 'Atletas y entrenadores que necesitan vender membresías o programas con máxima credibilidad.',
         color: 'border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-[0_10px_40px_rgba(255,79,0,0.1)]',
@@ -21,7 +21,7 @@ const targetGroups = [
         marginTop: 'mt-0'
     },
     {
-        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop',
         title: 'Emprendedores',
         desc: 'Dueños de negocios locales y restaurantes familiares que necesitan atraer más reservas cada día.',
         color: 'border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-[0_10px_40px_rgba(255,79,0,0.1)]',
@@ -71,7 +71,7 @@ const TargetAudience = () => {
                     </h3>
                 </div>
                 <div className="w-full md:w-1/3 text-left md:text-right hidden md:block">
-                    <p className="text-lg text-gray-500 font-light max-w-xs ml-auto">Soluciones digitales precisas esculpidas para nichos de alta competencia.</p>
+                    <p className="text-lg text-gray-400 font-light max-w-xs ml-auto">Soluciones digitales precisas esculpidas para nichos de alta competencia.</p>
                 </div>
             </div>
 
@@ -90,10 +90,6 @@ const TargetAudience = () => {
                                 <img
                                     src={group.image}
                                     alt={group.title}
-                                    width={400}
-                                    height={192}
-                                    loading="lazy"
-                                    decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 sepia-[40%] group-hover:sepia-0 grayscale-[30%] group-hover:grayscale-0"
                                 />
                                 {/* Overlay para darle ese tono oscuro/branding si la imagen es muy brillante */}

@@ -12,7 +12,7 @@ const testimonials = [
         role: "Dueño de Crossfit Alpha",
         content: "Antes teníamos visitas pero nadie dejaba su contacto. Desde que lanzaron la nueva web, pasamos de 2 a 15 reservas de clases de prueba por día. El cambio es brutal.",
         rating: 5,
-        image: "https://i.pravatar.cc/150?u=carlos"
+        image: "https://i.pravatar.cc/150?img=11"
     },
     {
         name: "Dra. Sofía Alarcón",
@@ -110,7 +110,7 @@ const Testimonials = () => {
                             />
                             <div>
                                 <h4 className="font-[var(--font-unbounded)] font-bold text-white text-sm" itemProp="name">{test.name}</h4>
-                                <p className="text-gray-500 text-xs">{test.role}</p>
+                                <p className="text-gray-400 text-xs">{test.role}</p>
                             </div>
                         </div>
                     </div>

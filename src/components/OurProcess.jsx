@@ -119,7 +119,7 @@ const OurProcess = () => {
                                         <h4 className="text-2xl font-bold font-[var(--font-unbounded)] mb-3 text-[var(--color-text-main)]">
                                             {step.title}
                                         </h4>
-                                        <p className="text-gray-500 font-light leading-relaxed">
+                                        <p className="text-gray-400 font-light leading-relaxed">
                                             {step.desc}
                                         </p>
                                     </div>

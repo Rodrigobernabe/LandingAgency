@@ -70,6 +70,7 @@ function App() {
       <CustomCursor />
       <Navbar openForm={() => setIsFormOpen(true)} />
       <Hero openForm={() => setIsFormOpen(true)} />
+      <main>
       <Suspense fallback={null}>
         <LogoTicker />
         <div id="proceso"><OurProcess /></div>
@@ -90,6 +91,7 @@ function App() {
           onClose={() => setIsFormOpen(false)}
         />
       </Suspense>
+      </main>
     </div>
   )
 }

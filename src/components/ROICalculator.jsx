@@ -173,7 +173,7 @@ const ROICalculator = () => {
                             Ingreso Extra Mensual
                         </h4>
 
-                        <div ref={resultRef} className="text-5xl md:text-6xl font-bold font-[var(--font-unbounded)] text-white drop-shadow-md mb-2">
+                        <div ref={resultRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[var(--font-unbounded)] text-white drop-shadow-md mb-2 mx-auto text-center flex justify-center w-full">
                             +{formatCurrency(extraRevenue)}
                         </div>
 
